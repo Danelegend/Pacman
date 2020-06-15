@@ -178,6 +178,11 @@ public class Map {
                 direction = rand.nextInt(4);
                 check = false;
 
+                int upCounter = 0;
+                int downCounter = 0;
+                int leftCounter = 0;
+                int rightCounter = 0;
+
                 if (direction == 1) {
                     for (int k = 0; k < num - 1; k++) {
 
@@ -189,6 +194,24 @@ public class Map {
                             check = true;
                             break;
                         }
+
+                        if (row + 1 < 30) {
+                            if (map[row + 1][col - k].equals("w")) {
+                                upCounter++;
+                            }
+                        }
+
+                        if (row - 1 > 0) {
+                            if (map[row - 1][col - k].equals("w")) {
+                                downCounter++;
+                            }
+                        }
+
+                        if (upCounter > 1 || downCounter > 1) {
+                            num = num - 2;
+                            break;
+                        }
+
                     }
                 }
 
@@ -203,6 +226,24 @@ public class Map {
                             check = true;
                             break;
                         }
+
+                        if (col - 1> 0) {
+                            if (map[row + k][col - 1].equals("w")) {
+                                upCounter++;
+                            }
+                        }
+
+                        if (col+ 1 < 30) {
+                            if (map[row + k][col + 1].equals("w")) {
+                                downCounter++;
+                            }
+                        }
+
+                        if (upCounter  > 2 || downCounter > 2) {
+                            num = num - 2;
+                            break;
+                        }
+
                     }
                 }
 
@@ -217,6 +258,24 @@ public class Map {
                             check = true;
                             break;
                         }
+
+                        if (row + 1 < 30) {
+                            if (map[row + 1][col + k].equals("w")) {
+                                upCounter++;
+                            }
+                        }
+
+                        if (row - 1 > 0) {
+                            if (map[row - 1][col + k].equals("w")) {
+                                downCounter++;
+                            }
+                        }
+
+                        if (upCounter > 1 || downCounter > 1) {
+                            num = num - 2;
+                            break;
+                        }
+
                     }
                 }
 
@@ -230,7 +289,26 @@ public class Map {
                             check = true;
                             break;
                         }
+
+                        if (row - 1 > 0) {
+                            if (map[row - 1][col - k].equals("w")) {
+                                upCounter++;
+                            }
+                        }
+
+                        if (row + 1 < 30) {
+                            if (map[row + 1][col - k].equals("w")) {
+                                downCounter++;
+                            }
+                        }
+
+                        if (upCounter > 2 || downCounter > 2) {
+                            num = num - 2;
+                            break;
+                        }
+
                     }
+
                 }
 
             }
