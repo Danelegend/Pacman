@@ -47,6 +47,8 @@ public class Map {
         map[13][1] = "s";
         positions[13*2 + 1].setSpace(true);
 
+        map[13][14] = "s";
+        
         map[14][1] = "s";
         positions[14*2 + 1].setSpace(true);
 
