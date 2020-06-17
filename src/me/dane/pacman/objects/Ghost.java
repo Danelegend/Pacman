@@ -94,7 +94,7 @@ public class Ghost extends GameObject {
     }
 
     public void tick(LinkedList<GameObject> gh) {
-        if (!start) {
+        if (!start || ScreenHandler.getScreenNum() == 3) {
             return;
         }
 
