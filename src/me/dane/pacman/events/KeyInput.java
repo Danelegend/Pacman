@@ -42,6 +42,23 @@ public class KeyInput extends KeyAdapter {
             if (c == 'd') {
                 p.addCommand(c);
             }
+            
+            if (key == 38) {
+                p.addCommand('w');
+            }
+
+            if (key == 40) {
+                p.addCommand('s');
+            }
+
+            if (key == 37) {
+                p.addCommand('a');
+            }
+
+            if (key == 39) {
+                p.addCommand('d');
+            }
+            
         }
     }
 
