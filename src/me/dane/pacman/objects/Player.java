@@ -341,7 +341,20 @@ public class Player extends GameObject{
     }
 
     public void restart() {
-        lives = lives--;
+        if (lives <= 0) {
+            xVel = 0;
+            yVel = 0;
+
+            for (int i = 0; i < ghosts.length; i++) {
+                ghosts[i].setStart(true);
+            }
+
+            ScreenHandler.setScreenNum(3);
+            outOfLives = true;
+            return;
+        }
+
+        lives--;
         command = 'n';
         inSquareMiddle = true;
         alive = true;
