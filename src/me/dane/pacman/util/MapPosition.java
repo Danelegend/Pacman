@@ -1,10 +1,12 @@
 package me.dane.pacman.util;
 
+import java.awt.*;
+
 public class MapPosition {
 
-    private static int xOffset = 300;
-    private static int yOffset = 82;
-    private static int cellSize = 22;
+    private static int xOffset = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth()/4;
+    private static int yOffset = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth()/12;
+    private static int cellSize = 30;
 
     private static int xToCol(int x) {
         int col = (x - xOffset)/cellSize;
@@ -36,5 +38,8 @@ public class MapPosition {
         return coord;
     }
 
+    public static int getCellSize() {
+        return cellSize;
+    }
 
 }
