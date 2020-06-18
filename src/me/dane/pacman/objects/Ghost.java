@@ -506,7 +506,6 @@ public class Ghost extends GameObject {
     }
 
     public void restart() {
-        timer.cancel();
         if (lives <= 0) {
             xVel = 0;
             yVel = 0;
