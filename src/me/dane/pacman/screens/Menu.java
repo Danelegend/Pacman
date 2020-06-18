@@ -23,14 +23,14 @@ public class Menu extends JPanel {
 
     public void drawButton(Graphics g, int x, int y, int height, int width, Color buttonColour, String text, Color textColour, String font, int size, int style) {
         g.setColor(buttonColour);
-        g.fillRect(x, y, width, height);
+        g.fillRect(x + 450, y, width, height);
 
         Font stringFont = new Font(font, style, size);
 
         FontMetrics metrics = g.getFontMetrics(stringFont);
 
         x = ((getWidth() - metrics.stringWidth(text))/2);
-        y = y + 18;
+        y = y + 22;
 
         g.setFont(stringFont);
         g.setColor(textColour);
