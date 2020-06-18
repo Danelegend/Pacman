@@ -1,6 +1,5 @@
 package me.dane.pacman.objects;
 
-import javafx.geometry.Pos;
 import me.dane.pacman.GameHandler;
 import me.dane.pacman.util.Coordinate;
 import me.dane.pacman.util.Map;
