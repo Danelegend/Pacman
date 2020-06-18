@@ -506,29 +506,34 @@ public class Ghost extends GameObject {
     }
 
     public void restart() {
-        x = respawnX;
-        y = respawnY;
+        timer.cancel();
+        if (lives <= 0) {
+            xVel = 0;
+            yVel = 0;
+
+            for (int i = 0; i < ghosts.length; i++) {
+                ghosts[i].setStart(true);
+            }
+
+            ScreenHandler.setScreenNum(3);
+            outOfLives = true;
+            return;
+        }
+
+        lives--;
+        command = 'n';
+        inSquareMiddle = true;
+        alive = true;
         xVel = 0;
         yVel = 0;
+        activate = false;
+        direction = 0;
+        invincible = false;
         coord = MapPosition.getMapPos((int)x, (int)y);
-        direction = rand.nextInt(4) + 1;
-        coordToGetTo = this.initialCoordToGetTo();
-        atIntersection = false;
-        enteringNewSquare = false;
-        start = false;
-        beginning = true;
-        killable = false;
-        visible = true;
-        beginnerOn = true;
-
-        Timer timer = new Timer();
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                beginnerOn = false;
-            }
-        }, 10*1000);
+        oldPos = positions[((coord.getCol())*30) + coord.getRow()];
+        newPos = positions[((coord.getCol())*30) + coord.getRow()];
+        x = respawnX;
+        y = respawnY;
     }
 
     public void restart2() {
