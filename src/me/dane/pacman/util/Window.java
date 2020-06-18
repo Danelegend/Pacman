@@ -29,7 +29,7 @@ public class Window extends JFrame {
             f.setExtendedState(JFrame.MAXIMIZED_BOTH);
             f.setUndecorated(true);
             f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            f.add(new MainMenu());
+            f.add(new MainMenu(f));
             f.setVisible(true);
         }
 
