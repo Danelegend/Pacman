@@ -1,7 +1,8 @@
 package me.dane.pacman.objects;
 
-import javafx.geometry.Pos;
 import me.dane.pacman.GameHandler;
+import me.dane.pacman.statics.ScreenHandler;
+import me.dane.pacman.statics.StaticWindow;
 import me.dane.pacman.util.Coordinate;
 import me.dane.pacman.util.Map;
 import me.dane.pacman.util.MapPosition;
@@ -18,6 +19,7 @@ public class Player extends GameObject{
     private boolean inSquareMiddle;
     private boolean invincible;
     private boolean alive;
+    private boolean outOfLives;
 
     private int lives;
 
@@ -54,6 +56,7 @@ public class Player extends GameObject{
         command = 'n';
         inSquareMiddle = true;
         alive = true;
+        outOfLives = false;
         xVel = 0;
         yVel = 0;
 
@@ -92,19 +95,15 @@ public class Player extends GameObject{
                 counter++;
             }
         }
-        /*counter = 0;
+        /*
+        counter = 0;
         for (int i = 0; i < positions.length; i++) {
-
             String ex = "x";
-
             if (positions[i].hasWall()) {
                 ex = "w";
             }
-
             System.out.print(ex);
-
             counter++;
-
             if (counter == 30) {
                 System.out.println("");
                 counter = 0;
@@ -258,6 +257,11 @@ public class Player extends GameObject{
     }
 
     public void render(Graphics g) {
+        if (outOfLives) {
+            GameOver gm = new GameOver();
+            gm.display(g);
+        }
+
         if (alive) {
             g.setColor(Color.YELLOW);
             g.fillOval((int) x, (int) y, 20, 20);
@@ -371,5 +375,3 @@ public class Player extends GameObject{
     }
 
 }
-
-
